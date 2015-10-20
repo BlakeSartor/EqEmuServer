@@ -22,9 +22,7 @@ sub EVENT_ENTERZONE {
 sub EVENT_ZONE {
     $count--;
     if ($count <= 1 && $battle == 1) {
-	quest::shout2("winner winner chicken dinner");
+	$some_boss->Shout("$userid has won the battle!");
 	$battle = 0;
-	quest::shout($count);
-	quest::shout($battle);
     }
 }
