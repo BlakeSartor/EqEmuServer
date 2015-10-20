@@ -12,7 +12,7 @@ sub EVENT_ENTERZONE {
 	quest::shout("Battle starting in 5 minutes...");
 	$battle = 1;
     }
-    elsif ($count >= 3 && $battle == 0) {
+    elsif ($count >= 3) {
 	quest::shout("I have joined the battle!");
     }
 }
