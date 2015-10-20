@@ -1,35 +1,18 @@
 sub EVENT_ENTERZONE {
-    my $playerip = $client->GetIP();
-    @pvplist;
-    if ( grep { $_ eq $playerip } @pvplist )
-{
+#this is all the contested zones
+    my @zonelist = qw(crushbone);
+    if ( grep { $_ eq $zonesn } @zonelist ) { #Save PVP state if you zone into a contested zone
+	quest::setglobal("PvPState",$client->GetPVP(),5,"F"); #Adds their PVPstate to global
+	$client->SetPVP(1);
+    }
 
-    $client->Message(315,"YOU MAY ONLY HAVE ONE CHARACTER IN THIS ZONE!");
-    push(@pvplist, "$playerip");
-    $client->MovePC(348, 1.8, 1.6, -22.8, 187);
-    return;
-}
-push(@pvplist, "$playerip");
-$client->SetPVP(1);
 }
 
 sub EVENT_ZONE {
-    my $playerip = $client->GetIP();
-    my $count = 0;
-    foreach $pvp_player (@pvplist) 
-{
-    next unless $pvp_player = $playerip;
-    $count++;
-}
-
-if ($count >= 2)
-{
-    @pvplist = grep {$_ ne $playerip} @pvplist;
-    push(@pvplist, "$playerip"); #Add the IP back to list since there are 2 of the same IP
-}
-else
-{
-    @pvplist = grep {$_ ne $playerip} @pvplist;
-}
-$client->SetPVP(0);
+    my @zonelist = qw(crushbone);
+    if ( grep { $_ eq $zonesn } @zonelist ) { #If you zone out a contested zone
+	if(defined $qglobals{"PvPState"} && $qglobals{"PvPState"}==0) { #Checks global PVPState & Check if PvPState = 0
+	    $client->SetPVP(0) #Then turn pvp off
+	}
+    }
 }
