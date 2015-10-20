@@ -3,7 +3,7 @@ $battle = 0;
 sub EVENT_ENTERZONE {
     $count++;    
     $some_boss = $entity_list->GetNPCByNPCTypeID(999242); # Example
-    $some_boss->Shout("Current Player Count: " $count ". Waiting for other players to join. Please be patient...");
+    $some_boss->Shout("Current Player Count: $count. Waiting on more players to join. Please be patient...");
     quest::shout($some_boss);
     if ($count == 2 && $battle == 0) {
 	quest::shout("Battle starting in 5 minutes...");
