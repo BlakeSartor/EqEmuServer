@@ -1,3 +1,3 @@
 sub EVENT_ENTERZONE {
-    quest::say("HELLLLO AND WELCOME TO THE BATTLE CHILD");
+    $client->Message(4,"Hello and wlecome to the battle");
 }
