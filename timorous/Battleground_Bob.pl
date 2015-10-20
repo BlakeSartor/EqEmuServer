@@ -8,7 +8,7 @@ sub EVENT_SAY {
 	}
 	else {
 	    quest::pvp("On");
-	    quest::say("Placing you in battleground...");
+	    quest::say("Attempting to place you in battleground...");
 
 	    $client->MovePC(96,-12253.31,4383.21,-278.50,120);
 	}
