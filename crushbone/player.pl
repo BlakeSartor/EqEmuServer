@@ -14,7 +14,7 @@ sub EVENT_ENTERZONE {
 	$some_boss->Shout("Current Player Count: [$count].");
 	$some_boss->Shout("The battle will begin in 5 minutes...");
 	$battle = 1;
-	quest::settimer("bg",1);
+	quest::settimer("bg",30);
     }
     elsif ($count >= 3) {
 	$some_boss->Shout("$name has joined the battle!");
