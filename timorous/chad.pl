@@ -14,19 +14,23 @@ sub EVENT_SAY {
 	    }
 	}
 	elsif ($text eq "summon a corpse" || "summon the corpse") {
-	    quest::say("Attempting to summon buried corpses2.");
-	    quest::summonallplayercorpses($charid, $x, $y, $z, 0);
-	}
-    }
-}
+	    if($CorpseCount > 0) {
+		quest::say("Attempting to summon buried corpses2.");
+		quest::summonallplayercorpses($charid, $x, $y, $z, 0);
+	    } else {
+		$client->Message(13,"You have no corpses, begone.");
 
-sub COUNT_CORPSES {
-    my @corpse_list = $entity_list->GetCorpseList();
-    my $count = 0;
-    foreach $corpse_found (@corpse_list) {
-	if ($corpse_found->GetOwnerName() eq $client->GetName()) {
-	    $count++;
+	    }
 	}
     }
-    $count;
-}
+
+    sub COUNT_CORPSES {
+	my @corpse_list = $entity_list->GetCorpseList();
+	my $count = 0;
+	foreach $corpse_found (@corpse_list) {
+	    if ($corpse_found->GetOwnerName() eq $client->GetName()) {
+		$count++;
+	    }
+	}
+	$count;
+    }
