@@ -24,7 +24,7 @@ sub EVENT_ENTERZONE {
 sub EVENT_ZONE {
     $count--;
     if ($count <= 1 && $battle == 1) {
-	$some_boss->Shout("$name has won the battle!");
+	$some_boss->Shout("The battle has ended!");
 	$battle = 0;
     }
 }
