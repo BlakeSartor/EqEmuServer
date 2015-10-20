@@ -2,8 +2,7 @@ sub EVENT_SAY {
     my $CorpseCount = 0;
     my $charid = $client->CharacterID();
     if($text=~/hail/i) {
-	$client->Message(4,"The spectral figure stares into your soul with cold eyes, its voice entering your mind."); 
-	$client->Message(15, "We keep all that has been lost. In times past, nothing be returned once it was mine. Times have changed. The bodies, your [" . quest::saylink("bodies") . "], that were lost to you can now be returned.");
+	$client->Message(4,"The spectral figure stares into your soul with cold eyes, its voice entering your mind. We keep all that has been lost. In times past, nothing be returned once it was mine. Times have changed. The bodies, your [" . quest::saylink("bodies") . "], that were lost to you can now be returned.");
     } else {
 	$CorpseCount = COUNT_CORPSES();
 
