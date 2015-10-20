@@ -16,6 +16,7 @@ sub EVENT_ZONE {
     $count--;
     if ($count <= 1 && $battle == 1) {
 	quest::shout("winner winner chicken dinner");
+	$battle = 0;
 	quest::shout($count);
 	quest::shout($battle);
     }
