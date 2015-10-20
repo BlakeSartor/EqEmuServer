@@ -15,14 +15,14 @@ sub EVENT_ENTERZONE {
     }
     elsif ($count >= 3) {
 	$some_boss->Shout("Current Player Count: [$count].");
-	$some_boss->Shout("$userid has joined the battle");
+	$some_boss->Shout("$name has joined the battle");
     }
 }
 
 sub EVENT_ZONE {
     $count--;
     if ($count <= 1 && $battle == 1) {
-	$some_boss->Shout("$userid has won the battle!");
+	$some_boss->Shout("$name has won the battle!");
 	$battle = 0;
     }
 }
