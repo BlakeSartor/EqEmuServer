@@ -19,8 +19,8 @@ sub EVENT_ZONE {
         if ($battle = 1) {
 	    $battle = 0;
 	    quest::shout("winner winner chicken dinner");
-	    quest::shout($count);
-	    quest::shout($battle);
+	    $client->Message(4, $count);
+	    $client->Message(4, $battle);
 	}
     }
 }
