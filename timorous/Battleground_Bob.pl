@@ -8,7 +8,7 @@ sub EVENT_SAY {
 	}
 	else {
 	    quest::pvp("On");
-	    quest::gmmove("-12253.31, 4383.21, -278.50");
+	    $pc->MovePC(96,-12253.31, 4383.21, -278.50);
 	}
     }
 }
