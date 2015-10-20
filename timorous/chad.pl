@@ -1,9 +1,7 @@
 sub EVENT_SAY {
   my $CorpseCount = 0;
   my $charid = $client->CharacterID();
-  my $x = $client->GetX();
-  my $y = $client->GetY();
-  my $z = $client->GetZ();
+
   if($text=~/hail/i) {
       $client->Message(15,"I can [" . quest::saylink("bury a corpse") . "] .");
     $CorpseCount = COUNT_CORPSES();
