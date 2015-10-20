@@ -1,11 +1,11 @@
 $count = 0;
 $battle = 0;
-$some_boss = $entity_list->GetNPCByID(999242); # Example
 sub EVENT_ENTERZONE {
     $client->Message(4, "Waiting for other players to join. Please be patient...");
     $count++;    
     $client->Message(4, $count);
     $client->Message(4, $battle);
+    my $some_boss = $entity_list->GetMob("battle_ground_master"); # Example
     $some_boss->Say("hi");
     quest::shout($some_boss);
     if ($count == 2 && $battle == 0) {
