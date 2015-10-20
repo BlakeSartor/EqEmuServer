@@ -14,6 +14,7 @@ sub EVENT_ENTERZONE {
 	$some_boss->Shout("Current Player Count: [$count].");
 	$some_boss->Shout("The battle will begin in 5 minutes...");
 	$battle = 1;
+	quest::settimer("bg",1);
     }
     elsif ($count >= 3) {
 	$some_boss->Shout("$name has joined the battle!");
@@ -26,5 +27,14 @@ sub EVENT_ZONE {
     if ($count <= 1 && $battle == 1) {
 	$some_boss->Shout("The battle has ended!");
 	$battle = 0;
+	quest::stoptimer ("bg");
+	
+    }
+}
+sub EVENT_TIMER {
+
+    if ($timer eq "bg") {
+	quest::stoptimer ("bg");
+	quest::we(258,"Shout shout shouting something to the entire server");
     }
 }
