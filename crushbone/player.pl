@@ -1,5 +1,7 @@
 $count = 0;
 $battle = 0;
+$some_boss = $entity_list->GetNPCByNPCTypeID(999242); # Example
+$some_boss->Shout("hi");
 sub EVENT_ENTERZONE {
     $client->Message(4, "Waiting for other players to join. Please be patient...");
     $count++;    
