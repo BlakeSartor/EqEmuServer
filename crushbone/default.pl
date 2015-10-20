@@ -1,3 +1,3 @@
 sub EVENT_ENTERZONE {
-	quest::shout("Hello");
+    $client->Message(4, "Hello");
 }
