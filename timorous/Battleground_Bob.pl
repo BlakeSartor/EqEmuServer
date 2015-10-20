@@ -7,7 +7,7 @@ sub EVENT_SAY {
 	    quest::say("I'm sorry $name, but you must be level 50 to participate in this battleground. Speak with Grabriel the Third if you like to learn more about gaining the powers of a level 50.");
 	}
 	else {
-	quest::pvp("1");
+	quest::pvp("on");
 	quest::zone("77");
 	}
     }
