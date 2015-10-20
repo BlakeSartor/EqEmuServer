@@ -13,4 +13,7 @@ sub EVENT_ENTERZONE {
 
 sub EVENT_ZONE {
     $count--;
+    if ($count <= 1) {
+	$battle = 0;
+    }
 }
