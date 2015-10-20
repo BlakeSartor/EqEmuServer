@@ -14,7 +14,8 @@ sub EVENT_ENTERZONE {
 	$some_boss->Shout("Current Player Count: [$count].");
 	$some_boss->Shout("The battle will begin in 5 minutes...");
 	$battle = 1;
-	quest::settimer("bg",30);
+	quest::settimer("preptime",60);
+	plugin::SEV($client, "passings", 1);
     }
     elsif ($count >= 3) {
 	$some_boss->Shout("$name has joined the battle!");
@@ -33,8 +34,23 @@ sub EVENT_ZONE {
 }
 sub EVENT_TIMER {
 
-    if ($timer eq "bg") {
-	quest::stoptimer ("bg");
-	quest::we(258,"The Battle has begun!");
+    if ($timer eq "preptime") {
+	my $passings = plugin::REV($client, "passings");
+	if ($passings == 1) {
+	    $some_boss->Shout("The battle will begin in 4 minutes...");
+	}
+	if ($passings == 2) {
+	    $some_boss->Shout("The battle will begin in 3 minutes...");
+	}
+	if ($passings == 3) {
+	    $some_boss->Shout("The battle will begin in 2 minutes...");
+	}
+	if ($passings == 4) {
+	    $some_boss->Shout("The battle will begin in 1 minutes...");
+	}
+	if ($passings == 5) {
+	    quest::stoptimer ("preptime");
+	    quest::we(258,"The Battle has begun!");
+	}
     }
 }
