@@ -5,7 +5,7 @@ sub EVENT_ENTERZONE {
     $count++;    
     $client->Message(4, $count);
     $client->Message(4, $battle);
-    $some_boss = $entity_list->GetMobByID(999242); # Example
+    $some_boss = $entity_list->GetNPCByID(999242); # Example
     $some_boss->Say("hi");
     quest::shout($some_boss);
     if ($count == 2 && $battle == 0) {
