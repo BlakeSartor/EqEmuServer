@@ -7,12 +7,8 @@ sub EVENT_SAY {
 	$CorpseCount = COUNT_CORPSES();
 
 	if($text eq "summon a corpse" || $text eq "summon the corpse") {
-	    if($CorpseCount > 0) {
-		quest::summonallplayercorpses($charid, $x, $y, $z, 0);
-		$client->Message(15,"Very well, summoning your corpses now.");
-	    } else {
-		$client->Message(13,"You have no corpses, begone.");
-	    }
+	    quest::summonallplayercorpses($charid, $x, $y, $z, 0);
+	    $client->Message(15,"Very well, summoning your corpses now.");
 	}
         elsif($text eq "bury a corpse" || $text eq "bury the corpse") {
 	    if($CorpseCount > 0) {
