@@ -13,7 +13,8 @@ sub EVENT_ENTERZONE {
 
 sub EVENT_ZONE {
     $count--;
-    if ($count <= 1) {
+    if ($count <= 1) && ($battle = 1) {
 	$battle = 0;
+	quest::say("winner winner chicken dinner");
     }
 }
