@@ -17,10 +17,6 @@ sub EVENT_SAY {
         $client->Message(13,"You have no unburied corpses, begone.");
 	  }
     }
-    elsif ($text eq "summon a corpse" || $text eq "summon the corpse") {
-	quest::say("attempting to summon corpse");
-	quest::summonburriedplayercorpse($charid,$x,$y,$z,0);
-  }
 }
 
 sub COUNT_CORPSES {
