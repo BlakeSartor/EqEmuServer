@@ -3,6 +3,6 @@ sub EVENT_SAY {
 	quest::say("Would you like me to [" . quest::saylink("summon") . "] your corpse lost in battle?");
     }
     elsif ($text=~/summon/i) {
-	quest::summonallplayercorpses($userid,-1739,-11861,13,90);
+	quest::say("working on it...");
     }
 }
