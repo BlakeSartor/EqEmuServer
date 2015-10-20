@@ -12,7 +12,7 @@ sub EVENT_ENTERZONE {
     elsif ($count == 2 && $battle == 0) {
 	$some_boss->Shout("$name has joined the battle!");
 	$some_boss->Shout("Current Player Count: [$count].");
-	$some_boss->Shout("The battle will begin in 5 minutes...");
+	$some_boss->Shout("The battle will begin in 2 minutes...");
 	$battle = 1;
 	quest::settimer("t1",60);
     }
@@ -25,36 +25,60 @@ sub EVENT_ENTERZONE {
 sub EVENT_ZONE {
     $count--;
     if ($count <= 1 && $battle == 1) {
-	$some_boss->Shout("The battle has ended!");
+	quest::we(258, "The battle for crushbone has ended and a victor has been declared!");
 	$battle = 0;
 	quest::stoptimer ($timer);
-	
     }
 }
 sub EVENT_TIMER {
 
     if ($timer eq "t1") {
 	quest::stoptimer ("t1");
-	$some_boss->Shout("The battle will begin in 4 minutes...");
-	quest::settimer("t2",60);
+	$some_boss->Shout("The battle will begin in 1 minutes...");
+	quest::settimer("t2",30);
     }
     elsif ($timer eq "t2") {
 	quest::stoptimer ("t2");
-	$some_boss->Shout("The battle will begin in 3 minutes...");
-	quest::settimer("t3",60);
+	quest::we(258, "The battle will begin in 30 seconds...");
+	quest::settimer("t3",10);
     }
     elsif ($timer eq "t3") {
 	quest::stoptimer ("t3");
-	$some_boss->Shout("The battle will begin in 2 minutes...");
-	quest::settimer("t4",60);
-    }
+	quest::we(258, "The battle will begin in 20 seconds...");
+	quest::settimer("t4",10);
+}
     elsif ($timer eq "t4") {
 	quest::stoptimer ("t4");
-	$some_boss->Shout("The battle will begin in 1 minutes...");
-	quest::settimer("t5",60);
+	quest::we(258, "The battle will begin in 10 seconds...");
+	quest::settimer("t5",5);
     }
     elsif ($timer eq "t5") {
 	quest::stoptimer ("t5");
+	quest::we(258, "The battle will begin in 5 seconds...");
+	quest::settimer("t6",1);
+    }
+elsif ($timer eq "t6") {
+	quest::stoptimer ("t6");
+	quest::we(258, "The battle will begin in 4 seconds...");
+	quest::settimer("t7",1);
+    }
+elsif ($timer eq "t7") {
+	quest::stoptimer ("t7");
+	quest::we(258, "The battle will begin in 3 seconds...");
+	quest::settimer("t8",1);
+    }
+elsif ($timer eq "t8") {
+	quest::stoptimer ("t8");
+	quest::we(258, "The battle will begin in 2 seconds...");
+	quest::settimer("t9",1);
+    }
+elsif ($timer eq "t9") {
+	quest::stoptimer ("t9");
+	quest::we(258, "The battle will begin in 1 second...");
+	quest::settimer("t10",1);
+    }
+    elsif ($timer eq "t10") {
+	quest::stoptimer ("t10");
 	quest::we(258, "The battle for Crushbone has begun!");
     }
 }
