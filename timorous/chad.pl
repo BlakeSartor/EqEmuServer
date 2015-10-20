@@ -17,8 +17,8 @@ sub EVENT_SAY {
 	    }
 	}
 	elsif ($text eq "summon a corpse" || "summon the corpse") {
-	    quest::say("Attempting to summon buried corpses.");
-	    quest::summonburriedplayercorpse($charid, $x, $y, $z, 0);
+	    quest::say("Attempting to summon buried corpses2.");
+	    quest::summonallplayercorpses($charid, $x, $y, $z, 0);
 	}
     }
 }
