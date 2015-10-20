@@ -10,7 +10,7 @@ sub EVENT_SAY {
 	    quest::pvp("On");
 	    quest::say("Placing you in battleground...");
 
-	    $pc->MovePC(96,-12253.31,4383.21,-278.50,120);
+	    $client->MovePC(96,-12253.31,4383.21,-278.50,120);
 	}
     }
 }
