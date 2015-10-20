@@ -1,12 +1,9 @@
 $count = 0;
 $battle = 0;
 sub EVENT_ENTERZONE {
-    $client->Message(4, "Waiting for other players to join. Please be patient...");
     $count++;    
-    $client->Message(4, $count);
-    $client->Message(4, $battle);
     $some_boss = $entity_list->GetNPCByNPCTypeID(999242); # Example
-    $some_boss->Shout("Waiting for other players to join. Please be patient...");
+    $some_boss->Shout("Current Player Count: " $count ". Waiting for other players to join. Please be patient...");
     quest::shout($some_boss);
     if ($count == 2 && $battle == 0) {
 	quest::shout("Battle starting in 5 minutes...");
