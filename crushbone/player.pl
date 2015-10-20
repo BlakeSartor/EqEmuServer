@@ -9,13 +9,14 @@ sub EVENT_ENTERZONE {
 
     }
     elsif ($count == 2 && $battle == 0) {
+	$some_boss->Shout("$name has joined the battle!");
 	$some_boss->Shout("Current Player Count: [$count].");
 	$some_boss->Shout("The battle will begin in 5 minutes...");
 	$battle = 1;
     }
     elsif ($count >= 3) {
-	$some_boss->Shout("Current Player Count: [$count].");
 	$some_boss->Shout("$name has joined the battle");
+	$some_boss->Shout("Current Player Count: [$count].");
     }
 }
 
