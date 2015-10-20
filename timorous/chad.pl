@@ -14,16 +14,10 @@ sub EVENT_SAY {
 	    }
 	}
 	elsif ($text eq "summon a corpse" || "summon the corpse") {
-	    if($CorpseCount > 0) {
 		quest::say("Attempting to summon buried corpses2.");
-		quest::summonallplayercorpses($charid, $x, $y, $z, 0);
-	    } else {
-		$client->Message(13,"You have no corpses, begone.");
-
-	    }
+		quest::summonallplayercorpses($charid, $x, $y, $z, 0); 
 	}
     }
-
     sub COUNT_CORPSES {
 	my @corpse_list = $entity_list->GetCorpseList();
 	my $count = 0;
