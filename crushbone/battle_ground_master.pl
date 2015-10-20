@@ -1,3 +1,3 @@
 sub EVENT_ENTERZONE {
-    quest::shout2("hello");
+    quest::shout2("hellsso");
 }
