@@ -39,42 +39,42 @@ sub EVENT_TIMER {
     }
     elsif ($timer eq "t2") {
 	quest::stoptimer ("t2");
-	quest::we(258, "The battle will begin in 30 seconds...");
+	$some_boss->Shout("The battle will begin in 30 seconds...");
 	quest::settimer("t3",10);
     }
     elsif ($timer eq "t3") {
 	quest::stoptimer ("t3");
-	quest::we(258, "The battle will begin in 20 seconds...");
+	$some_boss->Shout("The battle will begin in 20 seconds...");
 	quest::settimer("t4",10);
 }
     elsif ($timer eq "t4") {
 	quest::stoptimer ("t4");
-	quest::we(258, "The battle will begin in 10 seconds...");
+	$some_boss->Shout("The battle will begin in 10 seconds...");
 	quest::settimer("t5",5);
     }
     elsif ($timer eq "t5") {
 	quest::stoptimer ("t5");
-	quest::we(258, "The battle will begin in 5 seconds...");
+	$some_boss->Shout("The battle will begin in 5 seconds...");
 	quest::settimer("t6",1);
     }
 elsif ($timer eq "t6") {
 	quest::stoptimer ("t6");
-	quest::we(258, "The battle will begin in 4 seconds...");
+	$some_boss->Shout("The battle will begin in 4 seconds...");
 	quest::settimer("t7",1);
     }
 elsif ($timer eq "t7") {
 	quest::stoptimer ("t7");
-	quest::we(258, "The battle will begin in 3 seconds...");
+	$some_boss->Shout("The battle will begin in 3 seconds...");
 	quest::settimer("t8",1);
     }
 elsif ($timer eq "t8") {
 	quest::stoptimer ("t8");
-	quest::we(258, "The battle will begin in 2 seconds...");
+	$some_boss->Shout("The battle will begin in 2 seconds...");
 	quest::settimer("t9",1);
     }
 elsif ($timer eq "t9") {
 	quest::stoptimer ("t9");
-	quest::we(258, "The battle will begin in 1 second...");
+	$some_boss->Shout("The battle will begin in 1 second...");
 	quest::settimer("t10",1);
     }
     elsif ($timer eq "t10") {
