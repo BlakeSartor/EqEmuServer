@@ -2,7 +2,7 @@ sub EVENT_SAY {
     my $CorpseCount = 0;
     my $charid = $client->CharacterID();
     if($text=~/hail/i) {
-	$client->Message(15,"I can [" . quest::saylink("bury a corpse") . "] or [" . quest::saylink("destroy a corpse") . "] that you have unburied.");
+	$client->Message(15,"I can [" . quest::saylink("bury a corpse") . "] or [" . quest::saylink("summon a corpse") . "] that you have buried.");
     } else {
 	$CorpseCount = COUNT_CORPSES();
 	if($text eq "bury a corpse" || $text eq "bury the corpse") {
@@ -13,8 +13,9 @@ sub EVENT_SAY {
 		$client->Message(13,"You have no unburied corpses, begone.");
 	    }
 	}
-	
-
+	elsif ($text eq "summon a corpse" || "summon the corpse") {
+	    quest::say("Attempting to summon buried corpses.");
+	}
     }
 }
 
