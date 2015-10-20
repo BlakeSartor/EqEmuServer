@@ -9,7 +9,7 @@ sub EVENT_SAY {
 	else {
 	    quest::pvp("On");
 	    quest::say("Attempting to place you in battleground...");
-	    $pc->MovePC(209,150,-1220,1120,128);
+	    quest::zone("crushbone");
 	}
     }
 }
