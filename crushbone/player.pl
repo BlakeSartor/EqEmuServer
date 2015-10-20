@@ -6,7 +6,7 @@ sub EVENT_ENTERZONE {
     $count++;    
     $client->Message(4, $count);
     $client->Message(4, $battle);
-    $some_boss->Shout("hi");
+    $some_boss->Say("hi");
     if ($count == 2 && $battle == 0) {
 	quest::shout("Battle starting in 5 minutes...");
 	$battle = 1;
