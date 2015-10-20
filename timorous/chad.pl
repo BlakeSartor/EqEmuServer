@@ -5,7 +5,7 @@ sub EVENT_SAY {
   my $y = $client->GetY();
   my $z = $client->GetZ();
   if($text=~/hail/i) {
-    $client->Message(15,"I can [" . quest::saylink("bury a corpse") . "] or [" . quest::saylink("summon a corpse") . "] ".");
+    $client->Message(15,"I can [" . quest::saylink("bury a corpse") . "] or [" . quest::saylink("summon a corpse") . "] .");
   } else {
     $CorpseCount = COUNT_CORPSES();
 
