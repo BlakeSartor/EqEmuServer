@@ -35,6 +35,6 @@ sub EVENT_TIMER {
 
     if ($timer eq "bg") {
 	quest::stoptimer ("bg");
-	quest::we(258,"Shout shout shouting something to the entire server");
+	quest::we(258,"The Battle has begun!");
     }
 }
