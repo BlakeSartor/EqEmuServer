@@ -27,7 +27,7 @@ sub EVENT_ZONE {
     if ($count <= 1 && $battle == 1) {
 	$some_boss->Shout("The battle has ended!");
 	$battle = 0;
-	quest::stoptimer ("preptime");
+	quest::stoptimer ($timer);
 	
     }
 }
