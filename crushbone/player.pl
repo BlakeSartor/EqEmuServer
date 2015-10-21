@@ -93,8 +93,4 @@ sub EVENT_TIMER {
 	    $n->SetPVP(1);
 	}
     }
-    elsif ($timer eq "end_timer) {
-	quest::stoptimer ("end_timer");
-	quest::we(258, "The battle has ended and $winnderID has emerged victorious!");
-    }
 }
