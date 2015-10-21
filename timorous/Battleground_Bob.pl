@@ -9,6 +9,7 @@ sub EVENT_SAY {
 	else {
 	    quest::say("Attempting to place you in battleground...");
 	    quest::zone("crushbone");
+	    quest::pvp("off");
 	}
     }
 }
