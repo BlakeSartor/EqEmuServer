@@ -29,6 +29,7 @@ sub EVENT_ZONE {
 	$battle = 0;
 	$client->SetPVP(0);	
 	quest::we(258,"gs");
+	quest::settimer("end_timer",3);
 	
     }
     else {
@@ -90,8 +91,8 @@ sub EVENT_TIMER {
 	    $n->SetPVP(1);
 	}
     }
-    elsif ($timer eq "t11") {
-	quest::stoptimer ("t11");
+    elsif ($timer eq "end_timer) {
+	quest::stoptimer ("end_timer");
 	quest::we(258, "The battle has ended and $winnderID has emerged victorious!");
     }
 }
