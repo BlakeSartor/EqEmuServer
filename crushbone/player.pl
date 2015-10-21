@@ -29,11 +29,7 @@ sub EVENT_ZONE {
     if ($count <= 1 && $battle == 1) {
 	$battle = 0;
 	quest::stoptimer ($timer);
-	my @nlist = $entity_list->GetClientList();
-	foreach my $n (@nlist) {
-	    $winnerID = $n->GetCleanName();
-	    quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious!");
-	}
+	quest::starttimer("win",1);	
     }
     my @zonelist = qw(crushbone);
     if ( grep { $_ eq $zonesn } @zonelist ) { #If you zone out a contested zone
@@ -97,5 +93,12 @@ sub EVENT_TIMER {
 	    $n->SetPVP(1);
 	}
     }
-    
+    elsif ($timer eq "win") {
+	quest::stoptimer("win");
+	my @nlist = $entity_list->GetClientList();
+	foreach my $n (@nlist) {
+	    $winnerID = $n->GetCleanName();
+	    quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious!");
+	}
+    } 
 }
