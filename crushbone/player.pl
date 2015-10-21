@@ -2,7 +2,7 @@ $count = 0;
 $battle = 0;
 sub EVENT_ENTERZONE {
 #this is all the contested zones
-    my @zonelist = qw(
+     @zonelist = qw(
 crushbone
 );
    
@@ -19,7 +19,7 @@ crushbone
 	$some_boss->Shout("Current Player Count: [$count].");
 	$some_boss->Shout("The battle will begin in 2 minutes...");
 	$battle = 1;
-	quest::settimer("t1",60);
+	quest::settimer("test",5);
     }
     elsif ($count >= 3) {
 	$some_boss->Shout("$name has joined the battle!");
@@ -34,7 +34,7 @@ sub EVENT_ZONE {
 	$battle = 0;
 	quest::stoptimer ($timer);
     }
-    my @zonelist = qw(
+    @zonelist = qw(
 crushbone
 );
     if ( grep { $_ eq $zonesn } @zonelist ) { #If you zone out a contested zone
@@ -90,13 +90,13 @@ sub EVENT_TIMER {
 	$some_boss->Shout("The battle will begin in 1 second...");
 	quest::settimer("t10",1);
     }
-    elsif ($timer eq "t10") {
+    elsif ($timer eq "test") {
 	quest::stoptimer ("t10");
 	quest::we(258, "The battle for Crushbone has begun!");
 
-	if ( grep { $_ eq $zonesn } @zonelist ) { #Save PVP state if you zone into a contested zone
+	elsif ( grep { $_ eq $zonesn } @zonelist ) { #Save PVP state if you zone into a contested zone
 	    quest::setglobal("PvPState",$client->GetPVP(),5,"F"); #Adds their PVPstate to global
 	    $client->SetPVP(1);
-    }
+	}
     }
 }
