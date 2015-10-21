@@ -24,15 +24,18 @@ sub EVENT_ENTERZONE {
 }
 
 sub EVENT_ZONE {
-    $exituser = $userid
     $count--;
     if ($count <= 1 && $battle == 1) {
 	$battle = 0;
 	$client->SetPVP(0);	
 	my @wlist = $entity_list->GetClientList();
 	foreach $w (@wlist) {
-	    quest::we(258, "user id is $userid");
-	    quest::we(258, "Client id is $w");
+	    $tempname = $w->GetCleanName();
+	    quest::we(258, "temp is $tempid");
+	    quest::we(258, "name is $name");
+	    if ($tempname eq $name) {
+		quest::we(258, "name equals tempname");
+	    }
 	}
     }
     else {
