@@ -63,7 +63,7 @@ sub EVENT_TIMER {
 	quest::settimer("t7",1);
     }
     elsif ($timer eq "t7") {
-q	quest::stoptimer ("t7");
+	quest::stoptimer ("t7");
 	$some_boss->Shout("The battle will begin in 3 seconds...");
 	quest::settimer("t8",1);
     }
