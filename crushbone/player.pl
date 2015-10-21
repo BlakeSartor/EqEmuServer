@@ -2,8 +2,6 @@ $count = 0;
 $battle = 0;
 
 sub EVENT_ENTERZONE {
-    $gloals = $client->GetGlobal("battleground_in_session");
-    quest::say("global variable $gloals");
     $count++;    
     $some_boss = $entity_list->GetNPCByNPCTypeID(999242);
     if ($count == 1) {
