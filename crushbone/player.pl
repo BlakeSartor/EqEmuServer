@@ -36,6 +36,7 @@ sub EVENT_ZONE {
 	    quest::we(258, "event_zone trigger by $name");
 	    if ($tempname ne $name) {
 		quest::we(258, "The battle for Crushbone has ended and $tempname has emerged victorious!");
+		$w->setPVP(0)
 	    }
 	}
     }
