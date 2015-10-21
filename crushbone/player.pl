@@ -29,7 +29,7 @@ sub EVENT_ZONE {
 	$battle = 0;
 	$client->SetPVP(0);	
 	quest::stoptimer ($timer);
-	quest::starttimer("win",1);
+	quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious");
     }
     else {
 	$client->SetPVP(0);
@@ -90,8 +90,4 @@ sub EVENT_TIMER {
 	    $n->SetPVP(1);
 	}
     }
-    elsif ($timer eq "win") {
-	quest::stoptimer("win");
-	quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious!");
-    } 
 }
