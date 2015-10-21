@@ -32,8 +32,8 @@ sub EVENT_ZONE {
 	my @wlist = $entity_list->GetClientList();
 	foreach my $w (@wlist) {
 	    $winnerID = $w->GetCleanName();
+	    quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious");
 	}
-	quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious");
 	
     }
     else {
