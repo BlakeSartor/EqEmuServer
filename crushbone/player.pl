@@ -5,10 +5,7 @@ sub EVENT_ENTERZONE {
     my @zonelist = qw(
 crushbone
 );
-    if ( grep { $_ eq $zonesn } @zonelist ) { #Save PVP state if you zone into a contested zone
-	quest::setglobal("PvPState",$client->GetPVP(),5,"F"); #Adds their PVPstate to global
-	$client->SetPVP(1);
-    }
+   
     $count++;    
     $some_boss = $entity_list->GetNPCByNPCTypeID(999242); # Example
     if ($count == 1) {
@@ -96,5 +93,10 @@ sub EVENT_TIMER {
     elsif ($timer eq "t10") {
 	quest::stoptimer ("t10");
 	quest::we(258, "The battle for Crushbone has begun!");
+
+	if ( grep { $_ eq $zonesn } @zonelist ) { #Save PVP state if you zone into a contested zone
+	    quest::setglobal("PvPState",$client->GetPVP(),5,"F"); #Adds their PVPstate to global
+	    $client->SetPVP(1);
+    }
     }
 }
