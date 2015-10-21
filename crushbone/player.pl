@@ -76,7 +76,7 @@ sub EVENT_TIMER {
 	quest::settimer("t7",1);
     }
     elsif ($timer eq "t7") {
-	quest::stoptimer ("t7");
+q	quest::stoptimer ("t7");
 	$some_boss->Shout("The battle will begin in 3 seconds...");
 	quest::settimer("t8",1);
     }
@@ -91,10 +91,10 @@ sub EVENT_TIMER {
 	quest::settimer("t10",1);
     }
     elsif ($timer eq "test") {
-	quest::stoptimer ("t10");
+	quest::stoptimer ("test");
 	quest::we(258, "The battle for Crushbone has begun!");
 
-	elsif ( grep { $_ eq $zonesn } @zonelist ) { #Save PVP state if you zone into a contested zone
+	if ( grep { $_ eq $zonesn } @zonelist ) { #Save PVP state if you zone into a contested zone
 	    quest::setglobal("PvPState",$client->GetPVP(),5,"F"); #Adds their PVPstate to global
 	    $client->SetPVP(1);
 	}
