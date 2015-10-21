@@ -33,8 +33,6 @@ sub EVENT_ZONE {
 	my @wlist = $entity_list->GetClientList();
 	foreach $w (@wlist) {
 	    $tempname = $w->GetCleanName();
-	    quest::we(258, "tempname is $tempname");
-	    quest::we(258, "event_zone trigger by $name");
 	    if ($tempname ne $name) {
 		quest::we(258, "The battle for Crushbone has ended and $tempname has emerged victorious!");
 		$w->SetPVP(0)
