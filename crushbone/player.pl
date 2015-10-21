@@ -1,6 +1,6 @@
 $count = 0;
 $battle = 0;
-sub EVENT_ENTERZONE {   
+sub EVENT_ENTERZONE {
     $count++;    
     $some_boss = $entity_list->GetNPCByNPCTypeID(999242); # Example
     if ($count == 1) {
@@ -80,7 +80,10 @@ sub EVENT_TIMER {
     elsif ($timer eq "t10") {
 	quest::stoptimer ("t10");
 	quest::we(258, "The battle for Crushbone has begun!");
-	quest::pvp("On");
+        my @nlist = $entity_list->GetClientList();
+	foreach my $n (@nlist) {
+	    $n->SetPVP(1);
+	}
     }
     
 }
