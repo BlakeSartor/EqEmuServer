@@ -7,7 +7,7 @@ sub EVENT_ENTERZONE {
     if ($count == 1) {
 	$some_boss->Shout("$name has joined the battle!");
 	$some_boss->Shout("Current Player Count: [$count].");
-	$some_boss->Shout(" Waiting on more players to join. Please be patient...");
+	$some_boss->Shout(" Waiting for more players to join. Please be patient...");
 
     }
     elsif ($count == 2 && $battle == 0) {
