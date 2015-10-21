@@ -14,6 +14,7 @@ sub EVENT_ENTERZONE {
 	$some_boss->Shout("$name has joined the battle!");
 	$some_boss->Shout("Current Player Count: [$count].");
 	quest::we(258, "The battle for Crushbone will begin in 2 minutes!");
+	quest::delglobal("battleground_in_session");
 	$battle = 1;
 	quest::settimer("t1",60);
     }
