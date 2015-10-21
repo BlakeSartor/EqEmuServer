@@ -22,6 +22,10 @@ sub EVENT_ENTERZONE {
 	$some_boss->Shout("$name has joined the battle!");
 	$some_boss->Shout("Current Player Count: [$count].");
     }
+    elsif ($cattle == 1) {
+	quest::we(18, "$name has joined after the battle has started. Removing him from the zone.");
+	quest::movepc(96, -1779.17,-11805.72,12.28);
+    }
 }
 
 sub EVENT_ZONE {
@@ -100,6 +104,7 @@ sub EVENT_TIMER {
 	quest::stoptimer ("t10");
 	quest::we(258, "The battle for Crushbone has begun!");
 	quest::setglobal("battleground_in_session",1,7,"F");
+	$cattle = 1;
         my @nlist = $entity_list->GetClientList();
 	foreach my $n (@nlist) {
 	    $n->SetPVP(1);
