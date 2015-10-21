@@ -8,8 +8,13 @@ sub EVENT_SAY {
 	}
 	else {
 	    quest::say("Attempting to place you in battleground...");
-	    quest::movepc(58, 263.63,-483.92,5.72);
-	    quest::pvp("off");
+	    if (defined $qglobals{"battle_ground_in_session"}) {
+		quest::say("I'm sorry $name, but a battleground is in session. Please wait for the current battleground to finish.");
+	    }
+	    else {
+		quest::movepc(58, 263.63,-483.92,5.72);
+		quest::pvp("off");
+	    }
 	}
     }
 }

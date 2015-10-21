@@ -35,6 +35,7 @@ sub EVENT_ZONE {
 	    $tempname = $w->GetCleanName();
 	    if ($tempname ne $name) {
 		quest::we(258, "The battle for Crushbone has ended and $tempname has emerged victorious!");
+		quest::delglobal("battle_in_session");
 		$w->SetPVP(0)
 	    }
 	}
@@ -97,6 +98,7 @@ sub EVENT_TIMER {
     elsif ($timer eq "t10") {
 	quest::stoptimer ("t10");
 	quest::we(258, "The battle for Crushbone has begun!");
+	quest::setglobal("battleground_in_session",1,5,"F");
         my @nlist = $entity_list->GetClientList();
 	foreach my $n (@nlist) {
 	    $n->SetPVP(1);
