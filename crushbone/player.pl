@@ -1,6 +1,5 @@
 $count = 0;
 $battle = 0;
-my @zonelist = qw(crushbone);
 
 sub EVENT_ENTERZONE {
     $count++;    
@@ -28,14 +27,12 @@ sub EVENT_ZONE {
     $count--;
     if ($count <= 1 && $battle == 1) {
 	$battle = 0;
+	$client->SetPVP(0);	
 	quest::stoptimer ($timer);
-	quest::starttimer("win",1);	
+	quest::starttimer("win",1);
     }
-    my @zonelist = qw(crushbone);
-    if ( grep { $_ eq $zonesn } @zonelist ) { #If you zone out a contested zone
-	if(defined $qglobals{"PvPState"} && $qglobals{"PvPState"}==0) { #Checks global PVPState & Check if PvPState = 0
-	    $client->SetPVP(0) #Then turn pvp off
-	}
+    else {
+	$client->SetPVP(0);
     }
 }
 sub EVENT_TIMER {
