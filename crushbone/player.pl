@@ -31,10 +31,11 @@ sub EVENT_ZONE {
 	my @wlist = $entity_list->GetClientList();
 	foreach $w (@wlist) {
 	    $tempname = $w->GetCleanName();
-	    quest::we(258, "temp is $tempid");
-	    quest::we(258, "name is $name");
+	    quest::we(258, "tempname is $tempname");
+	    quest::we(258, "even_zone trigger by $name");
 	    if ($tempname eq $name) {
-		quest::we(258, "name equals tempname");
+		quest::we(258, "name equals tempname: $tempname");
+		quest::we(258, "The battle for Crushbone has ended and $tempname has emerged victorious!");
 	    }
 	}
     }
