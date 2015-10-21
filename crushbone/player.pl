@@ -95,10 +95,6 @@ sub EVENT_TIMER {
     }
     elsif ($timer eq "win") {
 	quest::stoptimer("win");
-	my @nlist = $entity_list->GetClientList();
-	foreach my $n (@nlist) {
-	    $winnerID = $n->GetCleanName();
-	    quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious!");
-	}
+	quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious!");
     } 
 }
