@@ -8,7 +8,7 @@ sub EVENT_SAY {
 	}
 	else {
 	    quest::say("Attempting to place you in battleground...");
-	    quest::movepc(58, 259.29,-462,4)
+	    quest::movepc(58, 259.29,-462,4);
 	    quest::pvp("off");
 	}
     }
