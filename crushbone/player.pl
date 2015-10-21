@@ -32,7 +32,7 @@ sub EVENT_ZONE {
 	my @nlist = $entity_list->GetClientList();
 	foreach my $n (@nlist) {
 	quest::we(258, "The battle for Crushbone has ended and $n has emerged victorious!");
-
+	}
     }
     my @zonelist = qw(crushbone);
     if ( grep { $_ eq $zonesn } @zonelist ) { #If you zone out a contested zone
