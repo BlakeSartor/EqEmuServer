@@ -1,3 +1,4 @@
+$cattle = 0;
 $count = 0;
 $battle = 0;
 
