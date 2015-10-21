@@ -24,6 +24,7 @@ sub EVENT_ENTERZONE {
 }
 
 sub EVENT_ZONE {
+    $exituser = $userid
     $count--;
     if ($count <= 1 && $battle == 1) {
 	$battle = 0;
