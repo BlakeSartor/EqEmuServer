@@ -19,7 +19,7 @@ crushbone
 	$some_boss->Shout("Current Player Count: [$count].");
 	$some_boss->Shout("The battle will begin in 2 minutes...");
 	$battle = 1;
-	quest::settimer("test",5);
+	quest::settimer("t1",60);
     }
     elsif ($count >= 3) {
 	$some_boss->Shout("$name has joined the battle!");
@@ -47,7 +47,7 @@ sub EVENT_TIMER {
 
     if ($timer eq "t1") {
 	quest::stoptimer ("t1");
-	$some_boss->Shout("The battle will begin in 1 minutes...");
+	$some_boss->Shout("The battle will begin in 1 minute...");
 	quest::settimer("t2",30);
     }
     elsif ($timer eq "t2") {
