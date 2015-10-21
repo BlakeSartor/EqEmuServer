@@ -31,7 +31,7 @@ sub EVENT_ZONE {
 	quest::stoptimer ($timer);
 	my @nlist = $entity_list->GetClientList();
 	foreach my $n (@nlist) {
-	    $winnerID = $n->CharacterID();
+	    $winnerID = $n->GetCleanName();
 	    quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious!");
 	}
     }
