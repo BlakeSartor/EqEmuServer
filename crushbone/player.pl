@@ -80,6 +80,7 @@ sub EVENT_TIMER {
     elsif ($timer eq "t10") {
 	quest::stoptimer ("t10");
 	quest::we(258, "The battle for Crushbone has begun!");
+	quest::pvp("On");
     }
     
 }
