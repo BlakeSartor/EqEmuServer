@@ -90,10 +90,10 @@ q	quest::stoptimer ("t7");
 	$some_boss->Shout("The battle will begin in 1 second...");
 	quest::settimer("t10",1);
     }
-    elsif ($timer eq "test") {
-	quest::stoptimer ("test");
+    elsif ($timer eq "t10") {
+	quest::stoptimer ("t10");
 	quest::we(258, "The battle for Crushbone has begun!");
-	$client.SetPVP(1);
+	guest::pvp("On");
 	}
     }
 }
