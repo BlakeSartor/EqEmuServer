@@ -100,8 +100,6 @@ sub EVENT_TIMER {
 	quest::stoptimer ("t10");
 	quest::we(258, "The battle for Crushbone has begun!");
 	quest::setglobal("battleground_in_session",1,7,"F");
-	$gloals = $client->GetGlobal("battleground_in_session");
-	quest::we(258, "global variable $gloals");
         my @nlist = $entity_list->GetClientList();
 	foreach my $n (@nlist) {
 	    $n->SetPVP(1);
