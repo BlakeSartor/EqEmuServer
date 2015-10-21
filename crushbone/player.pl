@@ -14,7 +14,7 @@ sub EVENT_ENTERZONE {
     elsif ($count == 2 && $battle == 0) {
 	$some_boss->Shout("$name has joined the battle!");
 	$some_boss->Shout("Current Player Count: [$count].");
-	$some_boss->Shout("The battle will begin in 2 minutes...");
+	quest::we(258, "The battle for Crushbone will begin in 2 minutes!");
 	$battle = 1;
 	quest::settimer("t1",60);
     }
@@ -27,9 +27,12 @@ sub EVENT_ENTERZONE {
 sub EVENT_ZONE {
     $count--;
     if ($count <= 1 && $battle == 1) {
-	quest::we(258, "The battle for crushbone has ended and a victor has been declared!");
 	$battle = 0;
 	quest::stoptimer ($timer);
+	my @nlist = $entity_list->GetClientList();
+	foreach my $n (@nlist) {
+	quest::we(258, "The battle for Crushbone has ended and $n has emerged victorious!");
+
     }
     my @zonelist = qw(crushbone);
     if ( grep { $_ eq $zonesn } @zonelist ) { #If you zone out a contested zone
