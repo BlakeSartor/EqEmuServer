@@ -1,5 +1,7 @@
 $count = 0;
 $battle = 0;
+my @zonelist = qw(crushbone);
+
 sub EVENT_ENTERZONE {
     $count++;    
     $some_boss = $entity_list->GetNPCByNPCTypeID(999242); # Example
@@ -28,6 +30,12 @@ sub EVENT_ZONE {
 	quest::we(258, "The battle for crushbone has ended and a victor has been declared!");
 	$battle = 0;
 	quest::stoptimer ($timer);
+    }
+    my @zonelist = qw(crushbone);
+    if ( grep { $_ eq $zonesn } @zonelist ) { #If you zone out a contested zone
+	if(defined $qglobals{"PvPState"} && $qglobals{"PvPState"}==0) { #Checks global PVPState & Check if PvPState = 0
+	    $client->SetPVP(0) #Then turn pvp off
+	}
     }
 }
 sub EVENT_TIMER {
