@@ -29,11 +29,7 @@ sub EVENT_ZONE {
 	$battle = 0;
 	$client->SetPVP(0);	
 	quest::stoptimer ($timer);
-	my @wlist = $entity_list->GetClientList();
-	foreach my $w (@wlist) {
-	    $winnerID = $w->GetCleanName();
-	    quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious");
-	}
+	quest::starttimer("t11",5);
 	
     }
     else {
@@ -94,5 +90,9 @@ sub EVENT_TIMER {
 	foreach my $n (@nlist) {
 	    $n->SetPVP(1);
 	}
+    }
+    elsif ($timer eq "t11") {
+	quest::stoptimer("t11");
+	quest::we(258, "The battle has ended and $winnderID has emerged victorious!");
     }
 }
