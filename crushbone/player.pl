@@ -1,6 +1,14 @@
 $count = 0;
 $battle = 0;
 sub EVENT_ENTERZONE {
+#this is all the contested zones
+    my @zonelist = qw(
+crushbone
+);
+    if ( grep { $_ eq $zonesn } @zonelist ) { #Save PVP state if you zone into a contested zone
+	quest::setglobal("PvPState",$client->GetPVP(),5,"F"); #Adds their PVPstate to global
+	$client->SetPVP(1);
+    }
     $count++;    
     $some_boss = $entity_list->GetNPCByNPCTypeID(999242); # Example
     if ($count == 1) {
@@ -46,7 +54,7 @@ sub EVENT_TIMER {
 	quest::stoptimer ("t3");
 	$some_boss->Shout("The battle will begin in 20 seconds...");
 	quest::settimer("t4",10);
-}
+    }
     elsif ($timer eq "t4") {
 	quest::stoptimer ("t4");
 	$some_boss->Shout("The battle will begin in 10 seconds...");
@@ -57,22 +65,22 @@ sub EVENT_TIMER {
 	$some_boss->Shout("The battle will begin in 5 seconds...");
 	quest::settimer("t6",1);
     }
-elsif ($timer eq "t6") {
+    elsif ($timer eq "t6") {
 	quest::stoptimer ("t6");
 	$some_boss->Shout("The battle will begin in 4 seconds...");
 	quest::settimer("t7",1);
     }
-elsif ($timer eq "t7") {
+    elsif ($timer eq "t7") {
 	quest::stoptimer ("t7");
 	$some_boss->Shout("The battle will begin in 3 seconds...");
 	quest::settimer("t8",1);
     }
-elsif ($timer eq "t8") {
+    elsif ($timer eq "t8") {
 	quest::stoptimer ("t8");
 	$some_boss->Shout("The battle will begin in 2 seconds...");
 	quest::settimer("t9",1);
     }
-elsif ($timer eq "t9") {
+    elsif ($timer eq "t9") {
 	quest::stoptimer ("t9");
 	$some_boss->Shout("The battle will begin in 1 second...");
 	quest::settimer("t10",1);
