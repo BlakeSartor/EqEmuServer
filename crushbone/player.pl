@@ -25,10 +25,11 @@ sub EVENT_ENTERZONE {
 
 sub EVENT_ZONE {
     $count--;
-    if ($count <= 1 && $battle == 1) {
+    if ($count == 1 && $battle == 1) {
 	$battle = 0;
 	$client->SetPVP(0);	
 	quest::stoptimer($timer);
+	quest::we(15, "$name has fallen in battle!")l
 	my @wlist = $entity_list->GetClientList();
 	foreach $w (@wlist) {
 	    $tempname = $w->GetCleanName();
@@ -40,7 +41,11 @@ sub EVENT_ZONE {
 	    }
 	}
     }
+    elsif ($count == 0); {
+	$client->SetPVP(0);
+    }
     else {
+	quest::we(15, "$name has fallen in battle!");
 	$client->SetPVP(0);
     }
 }
