@@ -8,7 +8,8 @@ sub EVENT_SAY {
 	}
 	else {
 	    quest::say("Attempting to place you in battleground...");
-	    quest::say("global variable $battle_ground_in_session");
+	    $gloals = $client->GetGlobal("battle_ground_in_session");
+	    quest::say("global variable $gloals");
 	    if (defined $qglobals{"battleground_in_session"}) {
 		quest::say("I'm sorry $name, but a battleground is in session. Please wait for the current battleground to finish.");
 	    }
