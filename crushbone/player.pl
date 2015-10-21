@@ -30,8 +30,8 @@ sub EVENT_ZONE {
 	$client->SetPVP(0);	
 	my @wlist = $entity_list->GetClientList();
 	foreach $w (@wlist) {
-	    $2ndplace = $client->CharacterID());
-	quest::we(258, "2nd place character id is $2ndplace");
+	    $2ndplace = $client->CharacterID();
+	    quest::we(258, "2nd place character id is $2ndplace");
 	    if ($w != $client->CharacterID()) {
 		$winnerID = $w->GetCleanName();
 		quest::we(258, "The battle for Crushbone has ended and $winnerID has emerged victorious!");
