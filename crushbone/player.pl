@@ -3,7 +3,7 @@ $battle = 0;
 
 sub EVENT_ENTERZONE {
     $count++;    
-    $some_boss = $entity_list->GetNPCByNPCTypeID(999242); # Example
+    $some_boss = $entity_list->GetNPCByNPCTypeID(999242);
     if ($count == 1) {
 	$some_boss->Shout("$name has joined the battle!");
 	$some_boss->Shout("Current Player Count: [$count].");
@@ -37,7 +37,7 @@ sub EVENT_ZONE {
 	    quest::we(258, "event_zone trigger by $name");
 	    if ($tempname ne $name) {
 		quest::we(258, "The battle for Crushbone has ended and $tempname has emerged victorious!");
-		$w->setPVP(0)
+		$w->SetPVP(0)
 	    }
 	}
     }
