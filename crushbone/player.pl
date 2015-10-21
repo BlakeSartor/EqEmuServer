@@ -28,6 +28,7 @@ sub EVENT_ZONE {
     if ($count <= 1 && $battle == 1) {
 	$battle = 0;
 	$client->SetPVP(0);	
+	quest::stoptimer($timer);
 	my @wlist = $entity_list->GetClientList();
 	foreach $w (@wlist) {
 	    $tempname = $w->GetCleanName();
