@@ -39,11 +39,11 @@ sub EVENT_ZONE {
 	    }
 	}
     }
-    elsif ($count == 0) {
+    elsif ($count >= 2 && $battle == 1) {
+	quest::we(15, "$name has fallen in battle!");
 	$client->SetPVP(0);
     }
-    else {
-	quest::we(15, "$name has fallen in battle!");
+    elsif ($count == 0) {
 	$client->SetPVP(0);
     }
 }
