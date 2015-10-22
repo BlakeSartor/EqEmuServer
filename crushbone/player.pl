@@ -42,9 +42,14 @@ sub EVENT_ZONE {
 	    if ($tempname ne $name) {
 		quest::we(258, "The battle for Crushbone has ended and $tempname has emerged victorious!");
 		quest::delglobal("battleground_in_session");
-		$w->Message(4,"You have been awared 1 pvp point.");
-		$w->AddPVPPoints(5);
-		$w->SetPVP(0)
+		$w->Message(4,"You have been awarded 1 pvp point.");
+		$w->AddPVPPoints(1);
+		$w->SetPVP(0);
+		$pvp_points = $w->GetPVPPoints();
+		if ($pvp_points == 5) {
+		    $w->Message(18, "Congratulations, you have been awarded a title for winning 5 pvp points!");
+		    $w->SetAATitle("Meh");
+		}
 	    }
 	}
     }
