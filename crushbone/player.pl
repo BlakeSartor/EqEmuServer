@@ -47,8 +47,8 @@ sub EVENT_ZONE {
 		$w->SetPVP(0);
 		$pvp_points = $w->GetPVPPoints();
 		if ($pvp_points == 5) {
-		    $w->Message(18, "Congratulations, you have been awarded a title for winning 5 pvp points!");
-		    $w->SetAATitle("Meh");
+		    $w->Message(4, "Congratulations, you have been awarded the title meh");
+		    $w->SetAATitle("Meh","meh");
 		}
 	    }
 	}
