@@ -1,3 +1,3 @@
 sub EVENT_ENTERZONE {
-    quest::we(4, "Depopping all mobs in The Plane of Sky.");
+    $client->Message(4, "depopping plane of air");
 }
