@@ -43,8 +43,7 @@ sub EVENT_ZONE {
 		quest::we(258, "The battle for Crushbone has ended and $tempname has emerged victorious!");
 		quest::delglobal("battleground_in_session");
 		$pvp_points = $w->GetPVPPoints();
-		$pvp_points2 = $pvp_points+1;
-		$w->SetPVPPoints($pvp_points2);
+		$w->SetPVPPoints($pvp_points);
 		$w->SetPVP(0)
 	    }
 	}
