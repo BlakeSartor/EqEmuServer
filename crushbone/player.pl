@@ -44,6 +44,7 @@ sub EVENT_ZONE {
 		quest::delglobal("battleground_in_session");
 		$w->Message(4,"You have been awarded 1 pvp point.");
 		$w->AddPVPPoints(1);
+		$w->SendPVPStats();
 		$w->SetPVP(0);
 		$pvp_points = $w->GetPVPPoints();
 		if ($pvp_points == 5) {
