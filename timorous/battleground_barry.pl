@@ -13,8 +13,8 @@ sub EVENT_SAY {
 	    }
 	    else {
 		quest::pvp("off");
-		quest::redbind(71, 614.00, 1415.00, -663.62);
-		$npc->CastSpell(24660, $userid);
+		$primary = $client->GetItemAt(8192);
+		quest::say("you have something $primary in your primary");
 	    }
 	}
     }
