@@ -13,7 +13,7 @@ sub EVENT_SAY {
 	    }
 	    else {
 		quest::pvp("off");
-		quest::say("You have a " . quest::varlink($client->GetItemIDAt(9999)) . " in your " . plugin::Slot(9999) . " slot.");
+		quest::say("You have a " . quest::varlink($client->GetItemIDAt(8192)) . " in your " . plugin::Slot(8192) . " slot.");
 	       
 	    }
 	}
