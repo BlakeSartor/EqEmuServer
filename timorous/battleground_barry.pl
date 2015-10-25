@@ -12,7 +12,6 @@ sub EVENT_SAY {
 		quest::say("I'm sorry $name, but a battleground is in session. Please wait for the current battleground to finish.");
 	    }
 	    else {
-		quest::redbind(71, 614.00, 1415.00, -663.62, 0);
 		$npc->CastSpell(24660, $userid);
 		quest::pvp("off");
 	    }
