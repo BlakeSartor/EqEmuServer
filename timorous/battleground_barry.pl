@@ -13,7 +13,7 @@ sub EVENT_SAY {
 	    }
 	    else {
 		quest::redbind(71, 614.00, 1415.00, -663.62, 0);
-		$npc->Kill()
+		$npc->Kill();
 		quest::pvp("off");
 	    }
 	}
