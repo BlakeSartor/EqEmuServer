@@ -13,7 +13,7 @@ sub EVENT_SAY {
 	    }
 	    else {
 		quest::pvp("off");
-		$primary = $client->GetItemAt(8192);
+		$primary = $client->GetItemIDAt(8192);
 		quest::say("you have something $primary in your primary");
 	    }
 	}
