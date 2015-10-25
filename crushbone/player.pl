@@ -19,7 +19,7 @@ sub EVENT_ENTERZONE {
 	$battle = 1;
 	quest::settimer("t1",60);
     }
-    elsif ($count >= 3) {
+    elsif ($count >= 3 && $casttle == 0) {
 	$some_boss->Shout("$name has joined the battle!");
 	$some_boss->Shout("Current Player Count: [$count].");
     }
